@@ -1,0 +1,10 @@
+footer{
+    width: 100%;
+}
+
+@media (min-width: 767px) {
+    footer{
+        position: absolute;
+        bottom: 0;
+    }
+}

@@ -1,0 +1,23 @@
+.logo-con-nombre{
+    height: 3.5rem;
+    position: absolute;
+}
+
+.contenedor-login {
+    display: flex;
+    height: 100vh;
+    place-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn{
+    background-color: #007bff;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    filter: brightness(90%);
+}
+  
