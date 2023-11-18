@@ -11,6 +11,17 @@ import { NgxUiLoaderModule,  NgxUiLoaderConfig } from "ngx-ui-loader";
 import { PerfilComponent } from 'src/app/pages/generico/perfil/perfil.component';
 import { ConfigurarComponent } from 'src/app/pages/configurar/configurar.component';
 import { ReportesComponent } from 'src/app/pages/reportes/reportes.component';
+import { StakingComponent } from 'src/app/pages/servicios/staking/staking.component';
+import { GridComponent } from 'src/app/pages/servicios/grid/grid.component';
+import { CriptoBolsoComponent } from 'src/app/pages/servicios/cripto-bolso/cripto-bolso.component';
+import { PlanDeCarreraComponent } from 'src/app/pages/servicios/plan-de-carrera/plan-de-carrera.component';
+import { ReferidosComponent } from 'src/app/pages/servicios/referidos/referidos/referidos.component';
+import { ReferirComponent } from 'src/app/pages/servicios/referidos/referir/referir.component';
+import { BonosComponent } from 'src/app/pages/bonos/bonos.component';
+
+import { InversionComponent } from 'src/app/pages/comercio/inversion/inversion.component';
+import { PagoComponent } from 'src/app/pages/comercio/pago/pago.component';
+import { RetiroComponent } from 'src/app/pages/comercio/retiro/retiro.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -110,6 +121,16 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     CambiarclaveComponent,
     HechiceroComponent,
     TablaComponent,
+    StakingComponent,
+    GridComponent,
+    CriptoBolsoComponent,
+    ReferidosComponent,
+    ReferirComponent,
+    BonosComponent,
+    PlanDeCarreraComponent,
+    InversionComponent,
+    PagoComponent,
+    RetiroComponent
   ]
 })
 

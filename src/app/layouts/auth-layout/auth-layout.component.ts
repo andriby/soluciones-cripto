@@ -16,7 +16,6 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
     var html = document.getElementsByTagName("html")[0];
     html.classList.add("auth-layout");
     var body = document.getElementsByTagName("body")[0];
-    body.classList.add("bg-solucionesCripto");
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
    });
@@ -26,6 +25,5 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
     var html = document.getElementsByTagName("html")[0];
     html.classList.remove("auth-layout");
     var body = document.getElementsByTagName("body")[0];
-    body.classList.remove("bg-solucionesCripto");
   }
 }
