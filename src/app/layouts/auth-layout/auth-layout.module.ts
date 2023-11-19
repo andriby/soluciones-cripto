@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthLayoutRoutes } from './auth-layout.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { MatInputModule } from '@angular/material/input';
+
 import { LoginComponent } from '../../pages/login/login.component';
 import { NgxUiLoaderModule,  NgxUiLoaderConfig } from "ngx-ui-loader";
 
@@ -45,7 +47,8 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     RouterModule.forChild(AuthLayoutRoutes),
     FormsModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
-    NgbModule
+    NgbModule,
+    MatInputModule
   ],
   declarations: [
     LoginComponent

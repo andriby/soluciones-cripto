@@ -1,0 +1,61 @@
+<h2 mat-dialog-title>Comprar</h2>
+<div mat-dialog-content class="py-1">
+    <form [formGroup]="formulario" method="post" (ngSubmit)="buy()">
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Tipo de Servicio</mat-label>
+                <mat-select formControlName="servicioFormControl" [(ngModel)]="tipoDeServicio">
+                    <mat-option *ngFor="let servicio of servicios" [value]="servicio">
+                        {{servicio.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Plan</mat-label>
+                <mat-select formControlName="planFormControl" [(ngModel)]="plan">
+                    <mat-option *ngFor="let plan of plans" [value]="plan">
+                        {{plan.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Capital Inicial</mat-label>
+                <input matInput type="number" min="100" max="10000" [(ngModel)]="capital"
+                    formControlName="capitalFormControl" />
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Metodo de Pago</mat-label>
+                <mat-select formControlName="metodoFormControl" [(ngModel)]="metodo">
+                    <mat-option *ngFor="let metodo of metodos" [value]="metodo">
+                        {{metodo.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="my-3" style="width: 100%;">
+            <p class="text-muted" style="margin-bottom: 0; font-size: 0.7rem; text-align: left !important;">
+                Subir comprobante de pago:
+            </p>
+            <div class="input-group mb-3 custom-file">
+                <input type="file" class="custom-file-input" id="comprobante" (change)="onFileSelected($event)" formControlName="comprobante" />
+                <label for="comprobante" class="custom-file-label">
+                    {{selectedFileName || "Subir Archivo"}}
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="btnGroup">
+                <button type="button" class="btn button-outline-secondary" (click)="closeDialog()">cancelar</button>
+                <button type="submit" class="btn button-primary" [disabled]="formulario.invalid">Comprar</button>
+            </div>
+        </div>
+    </form>
+</div>

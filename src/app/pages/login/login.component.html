@@ -1,10 +1,14 @@
-<img src="../../../assets/img/SolucionesCripto/logo-con-nombre.png" alt="Soluciones Cripto" class="logo-con-nombre">
+<img
+  src="../../../assets/img/SolucionesCripto/logo-con-nombre.png"
+  alt="Soluciones Cripto"
+  class="logo-con-nombre"
+/>
 
 <!-- Page content -->
 <div class="container contenedor-login">
-  <div class="row justify-content-center align-items-center" style="width: 40%;">
+  <div class="justify-content-center align-items-center contenedor-form">
     <div class="col-lg-12 col-md-12">
-      <div class="card bg-secondary shadow border-0">
+      <div class="card shadow border-0" style="background-color: #f7fafcdc;">
         <div class="card-header">
           <br />
           <div class="btn-wrapper text-center">
@@ -25,44 +29,31 @@
 
           <!-- (ngSubmit)="login('top-right', 'danger')" -->
           <form role="form" #form="ngForm">
-            <div class="form-group mb-3">
-              <div class="input-group input-group-alternative">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"
-                    ><i class="fa fa-user"></i
-                  ></span>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Usuario"
-                  type="text"
-                  name="usuario"
-                  id="usuario"
-                  [(ngModel)]="usuario"
-                  [ngModelOptions]="{ standalone: true }"
-                  required
-                />
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group input-group-alternative">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"
-                    ><i class="ni ni-lock-circle-open"></i
-                  ></span>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Clave"
-                  type="password"
-                  name="clave"
-                  id="clave"
-                  [(ngModel)]="clave"
-                  [ngModelOptions]="{ standalone: true }"
-                  required
-                />
-              </div>
-            </div>
+            <mat-form-field>
+              <mat-label>Usuario</mat-label>
+              <input
+                matInput
+                type="text"
+                name="usuario"
+                id="usuario"
+                [(ngModel)]="usuario"
+                [ngModelOptions]="{ standalone: true }"
+                required
+              />
+            </mat-form-field>
+            
+            <mat-form-field class="mt-2">
+              <mat-label>Clave</mat-label>
+              <input
+                matInput
+                type="password"
+                name="clave"
+                id="clave"
+                [(ngModel)]="clave"
+                [ngModelOptions]="{ standalone: true }"
+                required
+              />
+            </mat-form-field>
 
             <div class="text-center">
               <br />
@@ -73,6 +64,7 @@
           </form>
         </div>
       </div>
+
       <div class="row mt-3">
         <div class="col-6">
           <a href="javascript:void(0)" class="text-dark"

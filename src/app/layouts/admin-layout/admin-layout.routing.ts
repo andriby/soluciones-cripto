@@ -13,9 +13,8 @@ import { ReferidosComponent } from 'src/app/pages/servicios/referidos/referidos/
 import { ReferirComponent } from 'src/app/pages/servicios/referidos/referir/referir.component';
 import { BonosComponent } from 'src/app/pages/bonos/bonos.component';
 
-import { InversionComponent } from 'src/app/pages/comercio/inversion/inversion.component';
-import { PagoComponent } from 'src/app/pages/comercio/pago/pago.component';
-import { RetiroComponent } from 'src/app/pages/comercio/retiro/retiro.component';
+import { PagoComponent } from 'src/app/pages/trade/pago/pago.component';
+import { RetiroComponent } from 'src/app/pages/trade/retiro/retiro.component';
 
 
 import { AuthGuardGuard } from 'src/app/services/seguridad/auth-guard.guard';
@@ -52,7 +51,7 @@ export const AdminLayoutRoutes: Routes = [
         component: GridComponent,
          canActivate: [AuthGuardGuard]
     }, {
-        path: 'cripto-bolso',
+        path: 'cripto bolso',
         component: CriptoBolsoComponent,
          canActivate: [AuthGuardGuard]
     }, {
@@ -70,10 +69,6 @@ export const AdminLayoutRoutes: Routes = [
     }, {
         path: 'bonos',
         component: BonosComponent,
-        canActivate: [AuthGuardGuard]
-    }, {
-        path: 'inversion',
-        component: InversionComponent,
         canActivate: [AuthGuardGuard]
     }, {
         path: 'pago',

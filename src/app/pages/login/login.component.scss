@@ -9,7 +9,26 @@
     place-content: center;
     align-items: center;
     justify-content: center;
+    .contenedor-form{
+        width: 100%;
+    }
 }
+
+@media only screen and (min-width:768px){
+    .contenedor-login .contenedor-form{
+        width: 40%;
+    }
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .mat-form-field{
+        width: 90%;
+    }
+}
+
 
 .btn{
     background-color: #007bff;
@@ -20,4 +39,3 @@
 .btn:hover {
     filter: brightness(90%);
 }
-  
