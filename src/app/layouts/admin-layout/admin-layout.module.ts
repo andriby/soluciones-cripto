@@ -17,7 +17,7 @@ import { CriptoBolsoComponent } from 'src/app/pages/servicios/cripto-bolso/cript
 import { PlanDeCarreraComponent } from 'src/app/pages/servicios/plan-de-carrera/plan-de-carrera.component';
 import { ReferidosComponent } from 'src/app/pages/servicios/referidos/referidos/referidos.component';
 import { ReferirComponent } from 'src/app/pages/servicios/referidos/referir/referir.component';
-import { BonosComponent } from 'src/app/pages/bonos/bonos.component';
+import { ExtrasComponent } from 'src/app/pages/extras/extras.component';
 
 import { InversionComponent } from 'src/app/pages/trade/inversion/inversion.component';
 import { PagoComponent } from 'src/app/pages/trade/pago/pago.component';
@@ -125,7 +125,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     CriptoBolsoComponent,
     ReferidosComponent,
     ReferirComponent,
-    BonosComponent,
+    ExtrasComponent,
     PlanDeCarreraComponent,
     InversionComponent,
     PagoComponent,

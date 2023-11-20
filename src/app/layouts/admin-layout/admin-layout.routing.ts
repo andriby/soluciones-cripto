@@ -11,7 +11,7 @@ import { PlanDeCarreraComponent } from 'src/app/pages/servicios/plan-de-carrera/
 
 import { ReferidosComponent } from 'src/app/pages/servicios/referidos/referidos/referidos.component';
 import { ReferirComponent } from 'src/app/pages/servicios/referidos/referir/referir.component';
-import { BonosComponent } from 'src/app/pages/bonos/bonos.component';
+import { ExtrasComponent } from 'src/app/pages/extras/extras.component';
 
 import { PagoComponent } from 'src/app/pages/trade/pago/pago.component';
 import { RetiroComponent } from 'src/app/pages/trade/retiro/retiro.component';
@@ -67,8 +67,8 @@ export const AdminLayoutRoutes: Routes = [
         component: ReferirComponent,
         canActivate: [AuthGuardGuard]
     }, {
-        path: 'bonos',
-        component: BonosComponent,
+        path: 'extras',
+        component: ExtrasComponent,
         canActivate: [AuthGuardGuard]
     }, {
         path: 'pago',

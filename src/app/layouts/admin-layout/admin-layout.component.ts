@@ -17,7 +17,7 @@ export class AdminLayoutComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
   public pagina : string = '';
-  screen: any ={width: 0};
+  screen: any = {width: 0};
 
   constructor(private ruta : Router, private msj: MensajeService, public dialog: MatDialog) { }
 
