@@ -24,7 +24,7 @@ export class TablaComponent implements OnInit {
   
 
   displayedColumns: string[] = ['codigo', 'nombre', 'fecha'];
-  dataSource : any
+  dataSource : any = this.ELEMENT_DATA
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
