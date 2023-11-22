@@ -1,1 +1,55 @@
-<p>pago works!</p>
+<h1 mat-dialog-title>Depositar</h1>
+<div mat-dialog-content>
+    <form action="">
+    <div class="row">
+    <mat-form-field appearance="fill">
+        <mat-label>Tipo de Servicio</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let servicio of servicios" [value]="servicio.value">
+            {{servicio.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cuenta</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let cuenta of cuentas" [value]="cuenta.value">
+            {{cuenta.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Método de Pago</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let metodo of metodos" [value]="metodo.value">
+            {{metodo.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Monto</mat-label>
+        <input matInput placeholder="Ex. 300" type="number" min="100" max="10000">
+      </mat-form-field>
+    </div>
+
+      <div class="input-group mb-3 custom-file">
+        <input type="file" class="custom-file-input" id="comprobante" formControlName="comprobante" />
+        <label for="comprobante" class="custom-file-label">
+            "Subir Archivo"
+        </label>
+    </div>
+
+    <div class="row">
+        <div mat-dialog-actions class="btnGroup">
+            <button type="button" class="btn button-outline-secondary" (click)="closeDialog()" mat-button>Cancelar</button>
+            <button type="submit" class="btn button-primary" mat-button cdkFocusInitial>Depositar</button>
+        </div>
+    </div>
+</form>
+</div>
+
