@@ -13,7 +13,7 @@
 
             <mat-form-field appearance="fill">
                 <mat-label>Plan</mat-label>
-                <mat-select formControlName="planFormControl" [(ngModel)]="plan">
+                <mat-select formControlName="planFormControl">
                     <mat-option *ngFor="let plan of plans" [value]="plan">
                         {{plan.viewValue}}
                     </mat-option>
@@ -24,14 +24,13 @@
         <div class="row">
             <mat-form-field appearance="fill">
                 <mat-label>Capital Inicial</mat-label>
-                <input matInput type="number" min="100" max="10000" [(ngModel)]="capital"
-                    formControlName="capitalFormControl" />
+                <input matInput type="number" min="100" max="10000" formControlName="capitalFormControl" />
 
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Metodo de Pago</mat-label>
-                <mat-select formControlName="metodoFormControl" [(ngModel)]="metodo">
+                <mat-select formControlName="metodoFormControl">
                     <mat-option *ngFor="let metodo of metodos" [value]="metodo">
                         {{metodo.viewValue}}
                     </mat-option>
@@ -44,7 +43,7 @@
                 Subir comprobante de pago:
             </p>
             <div class="input-group mb-3 custom-file">
-                <input type="file" class="custom-file-input" id="comprobante" (change)="onFileSelected($event)" formControlName="comprobante" />
+                <input type="file" class="custom-file-input" id="comprobante" (change)="onFileSelected($event)" formControlName="comprobanteFormControl" />
                 <label for="comprobante" class="custom-file-label">
                     {{selectedFileName || "Subir Archivo"}}
                 </label>

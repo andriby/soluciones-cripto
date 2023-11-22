@@ -1,16 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import {MatDialogRef} from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { FormGroup } from '@angular/forms';
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 interface Servicio {
   value: string;
@@ -63,17 +55,14 @@ formulario: FormGroup
     {value: 'metodo-1', viewValue: 'metodo 2'},
     {value: 'metodo-2', viewValue: 'metodo 3'},
   ];
-
-
-
     
   ngOnInit(): void {
     this.formulario = this.fb.group({
-      comprobante: [null, [Validators.required]],
       servicioFormControl: [null ,Validators.required],
       planFormControl: [null ,Validators.required],
       capitalFormControl: [null ,Validators.required],
       metodoFormControl: [null ,Validators.required],
+      comprobanteFormControl: [null, [Validators.required]],
      });
   }
 
@@ -89,9 +78,6 @@ formulario: FormGroup
   }
 
   tipoDeServicio: Servicio
-  plan: Plan
-  metodo: Metodo
-  capital: number
 
   buy(){
     Swal.fire({
