@@ -5,6 +5,7 @@ import { Maestro } from 'src/app/services/util/tabla.service';
 import { ApiService, IAPICore } from 'src/app/services/apicore/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PagoComponent } from '../../trade/pago/pago.component';
+import { RetiroComponent } from '../../trade/retiro/retiro.component';
 
 @Component({
   selector: 'app-staking',
@@ -30,8 +31,10 @@ export class StakingComponent implements OnInit {
   }
 
   openDialogRetirar(): void{
-
-  }
+    const dialogRef = this.dialog.open(RetiroComponent, {
+      width: this.screen.width > 768 ? '50vw' : '80vw'
+  })
+}
 
   openDialogDepositar(): void {
     const dialogRef = this.dialog.open(PagoComponent, {

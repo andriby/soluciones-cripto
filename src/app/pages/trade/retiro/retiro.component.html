@@ -1,1 +1,63 @@
-<p>retiro works!</p>
+<h1 mat-dialog-title>Retirar</h1>
+<div class="py-1" mat-dialog-content>
+    <form action="">
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Servicio</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let servicio of servicios" [value]="servicio.value">
+                {{servicio.viewValue}}
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Cuenta</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let cuenta of cuentas" [value]="cuenta.value">
+                {{cuenta.viewValue}}
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Depositar a: </mat-label>
+            <mat-select>
+                <mat-option *ngFor="let deposito of depositos" [value]="deposito.value">
+                {{deposito.viewValue}}
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Monto</mat-label>
+                <input matInput placeholder="Ex. 300" type="number" min="100" max="10000">
+            </mat-form-field>
+        </div>
+
+        <div class="py-1">
+            <div class="input-group mb-3 custom-file">
+                <input type="file" class="custom-file-input" id="comprobante" formControlName="comprobante" />
+                <label for="comprobante" class="custom-file-label">
+                    "Subir Comprobante de Pago"
+                </label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <mat-form-field class="concepto" appearance="fill">
+                <mat-label>Concepto</mat-label>
+                <input width="100%" matInput placeholder="Ex. Pago de Servicio">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            </div>
+            <div class="btnGroup">
+                <button type="button" class="btn button-outline-secondary" (click)="closeDialog()">Cancelar</button>
+                <button type="submit" class="btn button-primary">Retirar</button>
+            </div>
+        </form>
+    </div>
