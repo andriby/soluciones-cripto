@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
+import { FormGroup } from '@angular/forms';
 
 interface Servicio {
   value: string;
@@ -23,9 +26,21 @@ interface Deposito {
 })
 export class RetiroComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<RetiroComponent>) { }
+  formulario: FormGroup
+
+  constructor(
+    public dialogRef: MatDialogRef<RetiroComponent>,
+     private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
+    this.formulario = this.fb.group ({
+      servicioFormControl: [null, [Validators.required]],
+      cuentaFormControl: [null, [Validators.required]],
+      depositoFormControl: [null, [Validators.required]],
+      montoFormControl: [null, [Validators.required]],
+      comprobanteFormControl: [null, [Validators.required]]
+    })
   }
 
   closeDialog(): void {
@@ -49,5 +64,40 @@ export class RetiroComponent implements OnInit {
     {value: 'deposito-1', viewValue: 'Deposito 2'},
     {value: 'deposito-2', viewValue: 'Deposito 3'},
   ];
+
+  selectedFileName: string
+
+  onFileSelected(event:any): void{
+    const input = event.target;
+    if(input.files && input.files.length > 0){
+      this.selectedFileName = input.files[0].name;
+    } else{
+      this.selectedFileName = null
+    }
+  }
+
+  servicioRetiro: Servicio
+
+  withdraw():void {
+    Swal.fire({
+      title: 'Esta seguro?',
+      text: 'De retirar ' + this.servicioRetiro.viewValue,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Retirar!'
+    }).then((result) => {
+      if(result.isConfirmed) {
+        Swal.fire({
+          title: 'Retirado',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Listo!'
+        })
+        this.closeDialog()
+      }
+    })
+  }
 
 }

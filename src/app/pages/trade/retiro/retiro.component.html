@@ -1,11 +1,11 @@
 <h1 mat-dialog-title>Retirar</h1>
-<div class="py-1" mat-dialog-content>
-    <form action="">
+<div class="py-1" mat-dialog-content style="width: 95%; margin: 0 auto;">
+    <form [formGroup]="formulario" method="post" (ngSubmit)="withdraw()">
         <div class="row">
             <mat-form-field appearance="fill">
                 <mat-label>Servicio</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let servicio of servicios" [value]="servicio.value">
+            <mat-select formControlName="servicioFormControl" [(ngModel)]="servicioRetiro">
+                <mat-option *ngFor="let servicio of servicios" [value]="servicio">
                 {{servicio.viewValue}}
                 </mat-option>
             </mat-select>
@@ -13,7 +13,7 @@
 
             <mat-form-field appearance="fill">
                 <mat-label>Cuenta</mat-label>
-            <mat-select>
+            <mat-select formControlName="cuentaFormControl">
                 <mat-option *ngFor="let cuenta of cuentas" [value]="cuenta.value">
                 {{cuenta.viewValue}}
                 </mat-option>
@@ -24,7 +24,7 @@
         <div class="row">
             <mat-form-field appearance="fill">
                 <mat-label>Depositar a: </mat-label>
-            <mat-select>
+            <mat-select formControlName="depositoFormControl">
                 <mat-option *ngFor="let deposito of depositos" [value]="deposito.value">
                 {{deposito.viewValue}}
                 </mat-option>
@@ -33,23 +33,21 @@
 
             <mat-form-field appearance="fill">
                 <mat-label>Monto</mat-label>
-                <input matInput placeholder="Ex. 300" type="number" min="100" max="10000">
+                <input matInput placeholder="Ex. 300" type="number" min="100" max="10000" formControlName="montoFormControl">
             </mat-form-field>
         </div>
 
-        <div class="py-1">
-            <div class="input-group mb-3 custom-file">
-                <input type="file" class="custom-file-input" id="comprobante" formControlName="comprobante" />
-                <label for="comprobante" class="custom-file-label">
-                    "Subir Comprobante de Pago"
-                </label>
-            </div>
-        </div>
+        <div class="input-group mb-3 custom-file row">
+            <input type="file" class="custom-file-input" id="comprobante" (change)="onFileSelected($event)" formControlName="comprobanteFormControl" />
+            <label for="comprobante" class="custom-file-label">
+                {{selectedFileName || "Subir Archivo"}}
+            </label>
+          </div>
 
-        <div class="col-12">
-            <mat-form-field class="concepto" appearance="fill">
+        <div class="row">
+            <mat-form-field class="concepto" appearance="fill" style="width: 100%;">
                 <mat-label>Concepto</mat-label>
-                <input width="100%" matInput placeholder="Ex. Pago de Servicio">
+                <input matInput placeholder="Ex. Pago de Servicio">
             </mat-form-field>
         </div>
 
@@ -57,7 +55,7 @@
             </div>
             <div class="btnGroup">
                 <button type="button" class="btn button-outline-secondary" (click)="closeDialog()">Cancelar</button>
-                <button type="submit" class="btn button-primary">Retirar</button>
+                <button type="submit" class="btn button-primary" [disabled]="formulario.invalid">Retirar</button>
             </div>
         </form>
     </div>
