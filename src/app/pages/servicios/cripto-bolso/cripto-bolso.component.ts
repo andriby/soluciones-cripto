@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PagoComponent } from '../../trade/pago/pago.component';
+import { RetiroComponent } from '../../trade/retiro/retiro.component';
 
 @Component({
   selector: 'app-cripto-bolso',
@@ -22,7 +23,9 @@ screen: any = {width: 0}
   }
 
   openDialogRetirar(): void{
-
+    const dialogRef = this.dialog.open(RetiroComponent, {
+      width: this.screen.width > 768 ? '50vw' : '80vw'
+  })
   }
 
   openDialogDepositar(): void {
