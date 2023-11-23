@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
+import { FormGroup } from '@angular/forms';
 
 interface Servicio {
   value: string;
@@ -23,10 +26,12 @@ interface Metodo {
 })
 export class PagoComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<PagoComponent>) { }
+  formulario: FormGroup
 
-  ngOnInit(): void {
-  }
+  constructor(
+    public dialogRef: MatDialogRef<PagoComponent>,
+    private fb: FormBuilder
+    ) { }
 
   closeDialog(): void {
     this.dialogRef.close();
@@ -50,5 +55,50 @@ export class PagoComponent implements OnInit {
     {value: 'metodo-2', viewValue: 'Metodo 3'},
   ];
 
+  ngOnInit(): void {
+    this.formulario = this.fb.group ({
+      servicioFormControl: [null, [Validators.required]],
+      cuentaFormControl: [null, [Validators.required]],
+      metodoFormControl: [null, [Validators.required]],
+      montoFormControl: [null, [Validators.required]],
+      comprobanteFormControl: [null, [Validators.required]]
+    })
+  }
+
+  selectedFileName: string
+
+  onFileSelected(event:any): void{
+    const input = event.target;
+    if(input.files && input.files.length > 0){
+      this.selectedFileName = input.files[0].name;
+    } else{
+      this.selectedFileName = null
+    }
+  }
+
+  tipoDeServicio: Servicio
+  cuenta: Cuenta
+
+  buy(): void{
+    Swal.fire({
+      title: 'Esta seguro?',
+      text: 'De comprar ' + this.tipoDeServicio.viewValue,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, comprar!'
+    }).then((result) => {
+      if(result.isConfirmed) {
+        Swal.fire({
+          title: 'Comprado',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Listo!'
+        })
+        this.closeDialog()
+      }
+    })
+  }
 
 }

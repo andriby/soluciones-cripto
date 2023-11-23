@@ -1,10 +1,10 @@
-<h1 mat-dialog-title>Depositar</h1>
-<div mat-dialog-content>
-    <form action="">
+<h2 mat-dialog-title>Depositar</h2>
+<div mat-dialog-content class="py-1">
+  <form [formGroup]="formulario" method="post" (ngSubmit)="buy()">
     <div class="row">
-    <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill">
         <mat-label>Tipo de Servicio</mat-label>
-        <mat-select>
+        <mat-select formControlName="servicioFormControl" [(ngModel)]="tipoDeServicio"> 
           <mat-option *ngFor="let servicio of servicios" [value]="servicio.value">
             {{servicio.viewValue}}
           </mat-option>
@@ -13,7 +13,7 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Cuenta</mat-label>
-        <mat-select>
+        <mat-select formControlName="cuentaFormControl" [(ngModel)]="cuenta">
           <mat-option *ngFor="let cuenta of cuentas" [value]="cuenta.value">
             {{cuenta.viewValue}}
           </mat-option>
@@ -24,7 +24,7 @@
     <div class="row">
       <mat-form-field appearance="fill">
         <mat-label>Método de Pago</mat-label>
-        <mat-select>
+        <mat-select formControlName="metodoFormControl">
           <mat-option *ngFor="let metodo of metodos" [value]="metodo.value">
             {{metodo.viewValue}}
           </mat-option>
@@ -33,23 +33,22 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Monto</mat-label>
-        <input matInput placeholder="Ex. 300" type="number" min="100" max="10000">
+        <input matInput placeholder="300" type="number" min="100" max="10000" formControlName="montoFormControl">
       </mat-form-field>
     </div>
 
-      <div class="input-group mb-3 custom-file">
-        <input type="file" class="custom-file-input" id="comprobante" formControlName="comprobante" />
-        <label for="comprobante" class="custom-file-label">
-            "Subir Archivo"
-        </label>
-    </div>
+    <div class="input-group mb-3 custom-file">
+      <input type="file" class="custom-file-input" id="comprobante" (change)="onFileSelected($event)" formControlName="comprobanteFormControl" />
+      <label for="comprobante" class="custom-file-label">
+          {{selectedFileName || "Subir Archivo"}}
+      </label>
+  </div>
 
     <div class="row">
-        <div mat-dialog-actions class="btnGroup">
-            <button type="button" class="btn button-outline-secondary" (click)="closeDialog()" mat-button>Cancelar</button>
-            <button type="submit" class="btn button-primary" mat-button cdkFocusInitial>Depositar</button>
-        </div>
+      <div class="btnGroup">
+        <button type="button" class="btn button-outline-secondary" (click)="closeDialog()">Cancelar</button>
+        <button type="submit" class="btn button-primary" [disabled]="formulario.invalid">Depositar</button>
+      </div>
     </div>
-</form>
+  </form>
 </div>
-
