@@ -36,13 +36,18 @@
         <input matInput placeholder="300" type="number" min="100" max="10000" formControlName="montoFormControl">
       </mat-form-field>
     </div>
-
-    <div class="input-group mb-3 custom-file">
-      <input type="file" class="custom-file-input" id="comprobante" (change)="onFileSelected($event)" formControlName="comprobanteFormControl" />
-      <label for="comprobante" class="custom-file-label">
-          {{selectedFileName || "Subir Archivo"}}
-      </label>
-    </div>
+    
+    <div class="my-3" style="width: 100%;">
+      <p class="text-muted" style="margin-bottom: 0; font-size: 0.7rem; text-align: left !important;">
+          Subir comprobante de pago:
+      </p>
+      <div class="input-group mb-3 custom-file">
+          <input type="file" class="custom-file-input" id="comprobante" (change)="onFileSelected($event)" formControlName="comprobanteFormControl" />
+          <label for="comprobante" class="custom-file-label">
+              {{selectedFileName || "Subir Archivo"}}
+          </label>
+      </div>
+  </div>
 
     <div class="btnGroup">
         <button type="button" class="btn button-outline-secondary" (click)="closeDialog()">Cancelar</button>
