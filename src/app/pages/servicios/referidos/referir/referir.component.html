@@ -1,1 +1,16 @@
-<p>referir works!</p>
+<mat-form-field style="float: right;">
+    <input matInput [value]="codigo" disabled>
+</mat-form-field>
+<h2 mat-dialog-title>Referir</h2>
+<mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Codigo de referido</mat-label>
+        <input matInput>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <div class="btnGroup">
+        <button type="button" class="btn button-outline-secondary" (click)="closeDialog()">Cancelar</button>
+        <button type="button" class="btn button-primary">Generar Enlace</button>
+    </div>
+</mat-dialog-actions>
