@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>Depositar</h2>
-<div mat-dialog-content class="py-1">
+<div mat-dialog-content class="py-1" style="width: 95%; margin: 0 auto;">
   <form [formGroup]="formulario" method="post" (ngSubmit)="buy()">
     <div class="row">
       <mat-form-field appearance="fill">
@@ -44,11 +44,9 @@
       </label>
     </div>
 
-    <div class="row">
-      <div class="btnGroup">
+    <div class="btnGroup">
         <button type="button" class="btn button-outline-secondary" (click)="closeDialog()">Cancelar</button>
-        <button type="submit" class="btn button-primary" [disabled]="formulario.invalid">Depositar</button>
-      </div>
+        <button type="submit" class="btn button-primary" [disabled]="formulario.invalid">Retirar</button>
     </div>
-  </form>
+</form>
 </div>
