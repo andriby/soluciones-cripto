@@ -20,6 +20,8 @@ export class AdminLayoutComponent implements OnInit {
   public pagina : string = '';
   screen: any = {width: 0};
 
+  comprado: boolean = false
+
   constructor(private ruta : Router, private msj: MensajeService, public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -45,7 +47,7 @@ export class AdminLayoutComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(InversionComponent, {
-      width: this.screen.width > 768 ? '25vw' : '60vw',
+      width: this.screen.width > 768 ? '50vw' : '80vw',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -55,7 +57,7 @@ export class AdminLayoutComponent implements OnInit {
 
   referir(){
     const dialogRef = this.dialog.open(ReferirComponent, {
-      width: this.screen.width > 768 ? '50vw' : '80vw',
+      width: this.screen.width > 768 ? '30vw' : '50vw',
     });
 
     dialogRef.afterClosed().subscribe(result => {

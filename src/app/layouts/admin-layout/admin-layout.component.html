@@ -40,7 +40,8 @@
                         <span class="h2 font-weight-bold mb-0">Grid</span>
                       </div>
                       <div class="col-auto">
-                        <button class="btn button-primary" (click)="openDialog()">Comprar</button>
+                        <button class="btn button-primary" *ngIf="comprado === false" (click)="openDialog()">Comprar</button>
+                        <button class="btn button-primary" *ngIf="comprado === true" (click)="IrA('grid')">Consultar</button>
                       </div>
                     </div>
                     <p class="mt-3 mb-0 text-muted text-sm">
